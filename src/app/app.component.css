@@ -3,7 +3,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #f8f8f8;
+    background-color: #050505;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
@@ -16,7 +16,7 @@ header {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #333;
+    color: #797777;
     font-weight: bold;
   }
   
@@ -25,7 +25,7 @@ header {
   }
   
   nav a.active {
-    color: #007bff; /* Highlight the active link */
+    color: #d3d6d9; /* Highlight the active link */
   }
   
   footer {
@@ -35,3 +35,10 @@ header {
     border-top: 1px solid #e7e7e7;
   }
   
+  .brand-name {
+    font-size: 2rem; /* Adjust font size as needed */
+    font-weight: bold; /* Bold font weight */
+    letter-spacing: 2px; /* Add letter spacing for uniqueness */
+    margin: 0; /* Remove default margin */
+    color: white; /* White text color */
+  }

@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -30,6 +31,7 @@ export class ProductComponent implements OnInit {
       // Chunk into rows of 3 products
     });
   }
+
   // Function to chunk array into rows
   chunkProducts(products: Product[], chunkSize: number): Product[][] {
     const chunkedArray: Product[][] = [];
@@ -39,5 +41,15 @@ export class ProductComponent implements OnInit {
       index += chunkSize;
     }
     return chunkedArray;
+  }
+
+  // Helper function to generate array of filled stars
+  filledStars(count: number): number[] {
+    return Array.from({ length: count });
+  }
+
+  // Helper function to generate array of empty stars (bordered stars)
+  emptyStars(count: number): number[] {
+    return Array.from({ length: 5 - count });
   }
 }
