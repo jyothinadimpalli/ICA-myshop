@@ -1,33 +1,21 @@
+
+
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private users: User[] = [
-    {
-      address: {
-        geolocation: { lat: '-37.3159', long: '81.1496' },
-        city: 'kilcoole',
-        street: 'new road',
-        number: 7682,
-        zipcode: '12926-3874'
-      },
-      id: 1,
-      email: 'john@gmail.com',
-      username: 'johnd',
-      password: 'm38rmF$',
-      name: { firstname: 'john', lastname: 'doe' },
-      phone: '1-570-236-7033',
-      __v: 0
-    }
-  ];
+  private apiUrl = 'https://fakestoreapi.com/users'; // Replace with your API endpoint
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<User[]> {
-    return of(this.users);
+  getUserById(id: number): Observable<User> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<User>(url);
   }
+
 }

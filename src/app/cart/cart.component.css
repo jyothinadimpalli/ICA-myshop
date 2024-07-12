@@ -1,0 +1,22 @@
+.product-card {
+  width: 50%; /* Adjust width as needed */
+  margin-bottom: 20px;
+}
+
+.product-image {
+  width: 200px; /* Adjust image width as needed */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Maintain aspect ratio */
+}
+
+.product-details {
+  width: 100%;
+}
+
+.quantity-price {
+  margin-top: 5px;
+}
+
+.quantity-price p {
+  margin-left: 10px;
+}

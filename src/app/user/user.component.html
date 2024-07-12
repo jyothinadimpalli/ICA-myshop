@@ -1,7 +1,9 @@
-<div *ngFor="let user of users">
-    <h2>{{ user.name.firstname }} {{ user.name.lastname }}</h2>
-    <p>Email: {{ user.email }}</p>
-    <p>Phone: {{ user.phone }}</p>
-    <p>Address: {{ user.address.street }}, {{ user.address.city }}</p>
-  </div>
-  
+<!-- user.component.html -->
+
+<div *ngIf="user">
+  <h2>{{ user.name.firstname }} {{ user.name.lastname }}</h2>
+  <p>Email: {{ user.email }}</p>
+  <p>Phone: {{ user.phone }}</p>
+  <p>Address: {{ user.address.street }}, {{ user.address.city }} {{ user.address.zipcode }}</p>
+  <p>Geolocation: {{ user.address.geolocation.lat }}, {{ user.address.geolocation.long }}</p>
+</div>

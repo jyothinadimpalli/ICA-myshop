@@ -1,39 +1,37 @@
-/* Header Styles */
 header {
-    background-color: #007bff; /* Blue background color */
-    color: white; /* Text color */
-    padding: 10px 20px; /* Padding around header content */
-    display: flex; /* Flexbox for header contents */
-    justify-content: space-between; /* Space between items */
-    align-items: center; /* Center items vertically */
-  }
-  
-  header h1 {
-    margin: 0; /* Remove default margin */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   nav {
-    display: flex; /* Flexbox for navigation links */
+    display: flex;
+    gap: 20px;
   }
   
   nav a {
-    text-decoration: none; /* Remove underline */
-    color: white; /* Text color */
-    margin-left: 20px; /* Left margin between links */
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  nav a mat-icon {
+    margin-right: 8px;
   }
   
   nav a.active {
-    font-weight: bold; /* Active link style */
+    color: #007bff; /* Highlight the active link */
   }
   
-  /* Footer Styles */
   footer {
-    background-color: #f8f9fa; /* Light gray background color */
-    color: #333; /* Darker text color */
-    padding: 10px 20px; /* Padding around footer content */
-    text-align: center; /* Center text */
-    position: fixed; /* Fixed position at the bottom */
-    width: 100%; /* Full width */
-    bottom: 0; /* Stick to the bottom */
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #e7e7e7;
   }
   

@@ -1,6 +1,11 @@
 <div class="product-card-row">
   <div class="product-card" *ngFor="let product of products">
     <mat-card>
+      <div class="wishlist-icon">
+        <button mat-icon-button aria-label="Add to Wishlist">
+          <mat-icon>favorite_border</mat-icon>
+        </button>
+      </div>
       <img mat-card-image [src]="product.image" alt="{{ product.title }}">
       <mat-card-content>
         <h2>{{ product.title }}</h2>

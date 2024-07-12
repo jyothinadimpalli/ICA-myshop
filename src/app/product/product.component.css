@@ -1,19 +1,21 @@
 .product-card-row {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    justify-content: center; /* Center items horizontally */
-    gap: 16px; /* Space between rows */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
 }
 
 .product-card {
-    width: 250px; /* Fixed width for each card */
+    position: relative; /* Positioning context for absolute positioning */
+    width: 250px;
     margin: 10px;
 }
 
 .product-card mat-card {
-    height: 300px; /* Fixed height for each mat-card */
+    height: 400px; /* Fixed height for each mat-card */
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .product-card img {
@@ -22,30 +24,55 @@
     object-fit: cover; /* Ensure the image covers the container */
 }
 
-.mat-card-content {
+.wishlist-icon {
+    position: absolute;
+    top: 10px; /* Adjust top position as needed */
+    right: 10px; /* Adjust right position as needed */
+    z-index: 1; /* Ensure it's above the image */
+    animation: fadeIn 0.5s ease-in-out; /* Apply animation */
+    opacity: 0; /* Start with hidden icon */
+}
+
+.product-card:hover .wishlist-icon {
+    opacity: 1; /* Show icon on hover */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+mat-card-content {
     flex-grow: 1; /* Allow content to grow within the card */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center; /* Center content vertically */
+    text-align: center;
 }
 
-.mat-card-content h2 {
-    font-size: 1.2em; /* Adjusted font size for title */
-    margin-bottom: 8px; /* Bottom margin for title */
+mat-card-content h2 {
+    font-size: 1.2em;
+    margin-bottom: 8px;
 }
 
-.mat-card-content p {
-    font-size: 1em; /* Font size for other text */
-    margin-bottom: 8px; /* Bottom margin for paragraphs */
+mat-card-content p {
+    font-size: 1em;
+    margin-bottom: 8px;
 }
 
 .mat-card-actions {
     display: flex;
-    justify-content: center; /* Center align actions */
+    justify-content: center;
 }
 
 .mat-card-actions button {
-    background-color: #000; /* Black background color */
-    color: #fff; /* White text color */
-    margin-top: 10px; /* Top margin for spacing */
+    background-color: #000;
+    color: #fff;
+    margin-top: 10px;
 }

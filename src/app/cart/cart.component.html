@@ -1,10 +1,27 @@
-<div *ngFor="let cart of carts">
-    <h2>Cart ID: {{ cart.id }}</h2>
-    <p>Date: {{ cart.date }}</p>
-    <ul>
-      <li *ngFor="let product of cart.products">
-        Product ID: {{ product.productId }}, Quantity: {{ product.quantity }}
-      </li>
-    </ul>
-  </div>
-  
+<div *ngIf="cart" class="cart-container mat-elevation-z2">
+  <h2>Cart ID: {{ cart.id }}</h2>
+  <p>Date: {{ cart.date | date }}</p>
+  <ul>
+    <li *ngFor="let product of products" class="product-item">
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <mat-card class="product-card">
+          <mat-card-content fxLayout="row" fxLayoutAlign="start start">
+            <div class="product-details">
+              <mat-card-title>{{ product.title }}</mat-card-title>
+              <div fxLayout="row" fxLayoutAlign="start center" class="quantity-price">
+                <mat-form-field appearance="outline">
+                  <input matInput type="number" [(ngModel)]="product.quantity" >
+                </mat-form-field>
+                <p>Price: ${{ product.price }}</p>
+                <button mat-icon-button (click)="deleteProduct(product.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+            <img mat-card-image [src]="product.image" alt="Product Image" class="product-image">
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </li>
+  </ul>
+</div>
