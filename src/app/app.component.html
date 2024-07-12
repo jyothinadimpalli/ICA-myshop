@@ -1,10 +1,16 @@
 <!-- src/app/app.component.html -->
 <div>
-  <h1>My Angular App</h1>
-  <nav>
-    <a routerLink="/products" routerLinkActive="active">Products</a>
-    <a routerLink="/cart" routerLinkActive="active">Cart</a>
-    <a routerLink="/user" routerLinkActive="active">User</a>
-  </nav>
+  <header>
+    <h1>EcoEarth Store</h1>
+    <nav>
+      <a routerLink="/products" routerLinkActive="active">Products</a>
+      <a routerLink="/cart" routerLinkActive="active">Cart</a>
+      <a routerLink="/user" routerLinkActive="active">User</a>
+    </nav>
+  </header>
   <router-outlet></router-outlet> <!-- Routed components will be displayed here -->
+
+  <footer>
+    &copy; Before using IBM Consulting Assistance 
+  </footer>
 </div>

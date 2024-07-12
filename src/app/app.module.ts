@@ -7,6 +7,16 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { UserComponent } from './user/user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+
+// Angular Material components and modules
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +27,18 @@ import { UserComponent } from './user/user.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule // Add the AppRoutingModule here
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule ,
+     // Add the AppRoutingModule here
+
+         // Angular Material modules
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

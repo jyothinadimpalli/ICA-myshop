@@ -1,0 +1,39 @@
+/* Header Styles */
+header {
+    background-color: #007bff; /* Blue background color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding around header content */
+    display: flex; /* Flexbox for header contents */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+  }
+  
+  header h1 {
+    margin: 0; /* Remove default margin */
+  }
+  
+  nav {
+    display: flex; /* Flexbox for navigation links */
+  }
+  
+  nav a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* Text color */
+    margin-left: 20px; /* Left margin between links */
+  }
+  
+  nav a.active {
+    font-weight: bold; /* Active link style */
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: #f8f9fa; /* Light gray background color */
+    color: #333; /* Darker text color */
+    padding: 10px 20px; /* Padding around footer content */
+    text-align: center; /* Center text */
+    position: fixed; /* Fixed position at the bottom */
+    width: 100%; /* Full width */
+    bottom: 0; /* Stick to the bottom */
+  }
+  
