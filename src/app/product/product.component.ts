@@ -1,5 +1,6 @@
-// product.component.ts
+// src/app/product/product.component.ts
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
 
@@ -11,28 +12,32 @@ import { Product } from '../models/product';
 export class ProductComponent implements OnInit {
   products: Product[] = [];
   productsChunked: Product[][] = [];
-  loadTime: string;
-  apiResponseTime: string;
+  filteredProducts: Product[] = [];
+  searchQuery = '';
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(data => {
-      this.products = data;
-      this.productsChunked = this.chunkProducts(this.products, 3);
-      const startTime = performance.now();
-
-      this.productService.measureApiResponseTime().then(responseTime => {
-        this.apiResponseTime = responseTime;
-        const endTime = performance.now();
-        this.loadTime = (endTime - startTime).toFixed(2);
-      });
-      
-      // Chunk into rows of 3 products
+    this.route.queryParams.subscribe(params => {
+      this.searchQuery = params['search'] || '';
+      this.loadProducts();
     });
   }
 
-  // Function to chunk array into rows
+  loadProducts(): void {
+    this.productService.getProducts().subscribe(data => {
+      this.products = data;
+      this.filterProducts();
+      this.productsChunked = this.chunkProducts(this.filteredProducts, 3);
+    });
+  }
+
+  filterProducts(): void {
+    this.filteredProducts = this.products.filter(product =>
+      product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+  }
+
   chunkProducts(products: Product[], chunkSize: number): Product[][] {
     const chunkedArray: Product[][] = [];
     let index = 0;
@@ -43,12 +48,10 @@ export class ProductComponent implements OnInit {
     return chunkedArray;
   }
 
-  // Helper function to generate array of filled stars
   filledStars(count: number): number[] {
     return Array.from({ length: count });
   }
 
-  // Helper function to generate array of empty stars (bordered stars)
   emptyStars(count: number): number[] {
     return Array.from({ length: 5 - count });
   }

@@ -1,8 +1,10 @@
+<!-- src/app/app.component.html -->
 <div class="main-content">
   <div>
     <header>
       <h1 class="brand-name">EcoEarth Store</h1>
       <nav>
+        <input type="text" placeholder="Search products" (input)="onSearch($event)">
         <a routerLink="/products" routerLinkActive="active">
           <mat-icon>store</mat-icon>
           Products
@@ -17,6 +19,9 @@
         </a>
       </nav>
     </header>
+    <div class="search-container">
+
+    </div>
     <router-outlet></router-outlet> <!-- Routed components will be displayed here -->
     <footer>
       &copy; Without using IBM Consulting Assistance

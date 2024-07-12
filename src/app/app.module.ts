@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PerformanceComponent } from './performance/performance.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { MatDividerModule } from '@angular/material/divider';
     CartComponent,
     UserComponent,
     PerformanceComponent,
+    HomeComponent,
 
   ],
   imports: [
@@ -44,7 +46,6 @@ import { MatDividerModule } from '@angular/material/divider';
     MatButtonModule,
     MatCardModule,
     MatIconModule,MatDividerModule
-    
 
   ],
   providers: [],

@@ -1,0 +1,9 @@
+.performance-card {
+    max-width: 300px;
+    position: fixed;
+    top: 280px;
+    left: 940px;
+    z-index: 1000;
+    background-color: rgb(180, 184, 183);
+  }
+  
