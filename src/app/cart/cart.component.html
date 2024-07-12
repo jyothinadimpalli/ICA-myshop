@@ -1,0 +1,10 @@
+<div *ngFor="let cart of carts">
+    <h2>Cart ID: {{ cart.id }}</h2>
+    <p>Date: {{ cart.date }}</p>
+    <ul>
+      <li *ngFor="let product of cart.products">
+        Product ID: {{ product.productId }}, Quantity: {{ product.quantity }}
+      </li>
+    </ul>
+  </div>
+  
