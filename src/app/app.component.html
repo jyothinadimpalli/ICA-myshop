@@ -2,7 +2,10 @@
 <div class="main-content">
   <div>
     <header>
-      <h1 class="brand-name">EcoEarth Store</h1>
+      
+      <a routerLink="/" routerLinkActive="active">
+        <h1 class="brand-name">EcoEarth Store</h1>    
+      </a>
       <nav>
         <input type="text" placeholder="Search products" (input)="onSearch($event)">
         <a routerLink="/products" routerLinkActive="active">

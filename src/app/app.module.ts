@@ -20,6 +20,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PerformanceComponent } from './performance/performance.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { HomeComponent } from './home/home.component';
+import { MatSelectModule } from '@angular/material/select'; // Import MatSelectModule
+import { MatFormFieldModule } from '@angular/material/form-field'; // Import MatFormFieldModule
+
 
 
 @NgModule({
@@ -45,8 +48,8 @@ import { HomeComponent } from './home/home.component';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatIconModule,MatDividerModule
-
+    MatIconModule,MatDividerModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

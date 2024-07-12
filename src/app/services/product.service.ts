@@ -30,4 +30,13 @@ d:any;
   }
 
 
+  getCategories(): Observable<string[]> {
+    return this.http.get<string[]>('https://fakestoreapi.com/products/categories');
+  }
+  getProductsByCategory(category: string): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.apiUrl}/category/${category}`);
+  }
+
+
+
 }

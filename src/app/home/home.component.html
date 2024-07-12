@@ -1,1 +1,41 @@
-<p>home works!</p>
+<!-- src/app/home/home.component.html -->
+<div class="filter-container">
+    <div class="category-filter">
+      <mat-form-field appearance="fill">
+        <mat-label>Filter by Category</mat-label>
+        <mat-select [(value)]="selectedCategory" (selectionChange)="onCategoryChange($event.value)">
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{ category | titlecase }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  
+  <div class="product-card-row">
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <mat-card class="product-card">
+        <div class="wishlist-icon">
+          <button mat-icon-button aria-label="Add to Wishlist">
+            <mat-icon>favorite_border</mat-icon>
+          </button>
+        </div>
+        <img mat-card-image [src]="product.image" alt="{{ product.title }}">
+        <mat-card-content>
+          <h2>{{ product.title }}</h2>
+          <p>Price: ${{ product.price }}</p>
+          <div class="product-rating">
+            <p>Rating:</p>
+            <mat-icon *ngFor="let _ of filledStars(product.rating.rate)" class="star-icon">star</mat-icon>
+            <mat-icon *ngFor="let _ of emptyStars(product.rating.rate)" class="star-icon">star_border</mat-icon>
+            <span>({{ product.rating.count }} reviews)</span>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary">View</button>
+          <button mat-button color="accent">Add to Cart</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  
