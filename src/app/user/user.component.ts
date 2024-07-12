@@ -19,5 +19,9 @@ export class UserComponent implements OnInit {
         console.error('Error fetching user:', error);
       }
     );
+    
+  }
+  navigateToChat(): void {
+    window.open('https://servicesessentials.ibm.com/curatorai/apps/ui/new-chat/6691931f363e468ff3904290', '_blank');
   }
 }

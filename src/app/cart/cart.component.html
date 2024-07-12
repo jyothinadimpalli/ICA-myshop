@@ -13,8 +13,7 @@
 
 
 <div *ngIf="cart" class="cart-container mat-elevation-z2">
-  <h2>Cart ID: {{ cart.id }}</h2>
-  <p>Date: {{ cart.date | date }}</p>
+
   <ul>
     <li *ngFor="let product of products" class="product-item">
       <div fxLayout="row" fxLayoutAlign="start center">

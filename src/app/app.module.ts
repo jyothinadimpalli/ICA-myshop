@@ -20,13 +20,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PerformanceComponent } from './performance/performance.component';
 import { MatDividerModule } from '@angular/material/divider';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     CartComponent,
     UserComponent,
-    PerformanceComponent
+    PerformanceComponent,
+
   ],
   imports: [
     BrowserModule,
