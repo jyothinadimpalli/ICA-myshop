@@ -1,9 +1,7 @@
 // product.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
-
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -12,16 +10,26 @@ import { Product } from '../models/product';
 export class ProductComponent implements OnInit {
   products: Product[] = [];
   productsChunked: Product[][] = [];
+  loadTime: string;
+  apiResponseTime: string;
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe(data => {
       this.products = data;
-      this.productsChunked = this.chunkProducts(this.products, 3); // Chunk into rows of 3 products
+      this.productsChunked = this.chunkProducts(this.products, 3);
+      const startTime = performance.now();
+
+      this.productService.measureApiResponseTime().then(responseTime => {
+        this.apiResponseTime = responseTime;
+        const endTime = performance.now();
+        this.loadTime = (endTime - startTime).toFixed(2);
+      });
+      
+      // Chunk into rows of 3 products
     });
   }
-
   // Function to chunk array into rows
   chunkProducts(products: Product[], chunkSize: number): Product[][] {
     const chunkedArray: Product[][] = [];

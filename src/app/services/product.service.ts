@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';
 import { map } from 'rxjs/operators';
+import { PerformanceService } from './performance.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class ProductService {
 
   private apiUrl = 'https://fakestoreapi.com/products';
 d:any;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private performanceService: PerformanceService) { }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl);
@@ -24,5 +25,9 @@ d:any;
     );
     console.log(this.d);
   }
+  measureApiResponseTime(): Promise<string> {
+    return this.performanceService.getApiResponseTime(this.apiUrl).then(responseTime => responseTime.toFixed(2));
+  }
+
 
 }

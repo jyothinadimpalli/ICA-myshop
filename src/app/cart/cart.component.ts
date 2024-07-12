@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
-
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -9,12 +8,20 @@ import { CartService } from '../services/cart.service';
 export class CartComponent implements OnInit {
   cart: any; // Assuming a single cart object for simplicity
   products: any[] = [];
-
+  loadTime: string;
+  apiResponseTime: string;
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
     const cartId = 6; // Replace with the actual cart ID or dynamically pass it
     this.fetchCartDetails(cartId);
+    
+    const startTime = performance.now();
+    this.cartService.measureApiResponseTime().then(responseTime => {
+      this.apiResponseTime = responseTime;
+      const endTime = performance.now();
+      this.loadTime = (endTime - startTime).toFixed(2);
+    });
   }
 
   fetchCartDetails(cartId: number): void {
@@ -63,4 +70,5 @@ export class CartComponent implements OnInit {
       }
     );
   }
+
 }

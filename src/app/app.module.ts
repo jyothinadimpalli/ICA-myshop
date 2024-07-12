@@ -17,14 +17,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { PerformanceComponent } from './performance/performance.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     CartComponent,
-    UserComponent
+    UserComponent,
+    PerformanceComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,MatDividerModule
 
   ],
   providers: [],

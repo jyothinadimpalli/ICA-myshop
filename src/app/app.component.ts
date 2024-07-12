@@ -10,6 +10,7 @@ import { User } from './models/user';
 export class AppComponent {
   title = 'my-shop';
   username="";
+
   constructor(private userService: UserService) {}
   ngOnInit(): void {
     this.userService.getUserById(1).subscribe(
