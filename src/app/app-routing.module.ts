@@ -7,6 +7,8 @@ import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat-integration/chat.component';
 import { ProductDetailsComponent } from './product-details/product-details.component'; // Replace with actual component path
+import { PurchasedHistoryComponent } from './purchased-history/purchased-history.component';
+import { PaymentOptionsComponent } from './payment-options/payment-options.component';
 
 
 const routes: Routes = [
@@ -16,9 +18,12 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'user', component: UserComponent },
   { path: 'chat', component: ChatComponent },
+  { path: 'purchased-history', component: PurchasedHistoryComponent },
+  { path: 'payment-options', component: PaymentOptionsComponent },
+  
+{ path: '', redirectTo: '/products', pathMatch: 'full' }, // Redirect to products component by default
+{ path: '**', redirectTo: '/products', pathMatch: 'full' } ,// Redirect to products component for any other unmatched routes
 
-  { path: '', redirectTo: '/products', pathMatch: 'full' }, // Redirect to products component by default
-  { path: '**', redirectTo: '/products', pathMatch: 'full' } // Redirect to products component for any other unmatched routes
 ];
 
 @NgModule({

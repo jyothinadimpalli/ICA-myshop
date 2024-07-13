@@ -1,0 +1,75 @@
+/* payment-options.component.css */
+
+.payment-screen {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .payment-options {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .payment-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+  
+  .payment-method {
+    text-align: center;
+  }
+  
+  .payment-method img {
+    width: 100px;
+    height: auto;
+  }
+  
+  .order-summary {
+    flex: 1;
+  }
+  
+  .order-summary .summary-details {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .cart-items {
+    margin-top: 10px;
+  }
+  
+  .cart-item {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .cart-item img {
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .item-details {
+    flex: 1;
+  }
+  
+  .checkout-actions {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .payment-methods {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .method {
+    margin: 10px 0;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  

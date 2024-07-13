@@ -25,6 +25,8 @@ import { MatFormFieldModule } from '@angular/material/form-field'; // Import Mat
 import { ChatComponent } from './chat-integration/chat.component';
 import { ProductRecommendationsComponent } from './product-recommendations/product-recommendations.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { PurchasedHistoryComponent } from './purchased-history/purchased-history.component';
+import { PaymentOptionsComponent } from './payment-options/payment-options.component';
 
 
 
@@ -35,7 +37,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     CartComponent,
     UserComponent,
     PerformanceComponent,
-    HomeComponent,ChatComponent, ProductRecommendationsComponent, ProductDetailsComponent
+    HomeComponent,ChatComponent, ProductRecommendationsComponent, ProductDetailsComponent, PurchasedHistoryComponent, PaymentOptionsComponent
   ],
   imports: [
     BrowserModule,

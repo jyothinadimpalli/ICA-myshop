@@ -1,0 +1,29 @@
+<!-- payment-options.component.html -->
+
+<div class="payment-screen">
+  <div class="payment-options">
+    <h2>Select Payment Method</h2>
+    <!-- Payment methods UI -->
+
+    <div class="payment-methods">
+      <h2>Select a Payment Method</h2>
+      <div class="method">
+        <button (click)="payWithPhonePe()">Pay with PhonePe</button>
+      </div>
+      <div class="method">
+        <button (click)="payWithGPay()">Pay with Google Pay</button>
+      </div>
+    </div>  </div>
+  
+  <div class="order-summary">
+    <h2>Order Summary</h2>
+    <div class="summary-details">
+      <p>Total Price: $560</p>
+ 
+    </div>
+  </div>
+  
+  <div class="checkout-actions">
+    <button mat-raised-button color="primary">Proceed to Payment</button>
+  </div>
+</div>

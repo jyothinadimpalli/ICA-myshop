@@ -1,52 +1,42 @@
-<!-- Toggle Button for Performance Metrics -->
-<button mat-icon-button class="toggle-metrics" (click)="toggleMetrics()">
-  <mat-icon>{{ showMetrics ? 'keyboard_arrow_left' : 'keyboard_arrow_right' }}</mat-icon>
-</button>
-
-<!-- Performance Metrics Card -->
-<mat-card class="performance-card" *ngIf="showMetrics">
+<mat-card>
   <mat-card-header>
-    <mat-card-title><small>Performance Metrics</small></mat-card-title>
+    <mat-card-title>Your Cart</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <small>API Response Time: <strong>{{ apiResponseTime }} ms</strong></small>
-    <mat-divider></mat-divider>
-    <div>
-      <small>Component Load Time (including API call): <strong>{{ loadTime }} ms</strong></small>
+    <!-- Existing product list -->
+    <div *ngFor="let product of products" class="product-item">
+      <!-- Product details -->
+      <mat-card class="product-card mat-elevation-z2">
+        <!-- Product image and details -->
+        <div class="product-details">
+          <img mat-card-image [src]="product.image" alt="Product Image" class="product-image">
+          <div class="product-info">
+            <mat-card-title>{{ product.title }}</mat-card-title>
+            <!-- Quantity and price -->
+            <div class="quantity-price">
+              <mat-form-field appearance="outline">
+                <input matInput type="number" [(ngModel)]="product.quantity" min="1" (change)="calculateTotalPrice()">
+              </mat-form-field>
+              <p class="price">Price: ${{ product.price }}</p>
+              <!-- Delete button -->
+              <button mat-icon-button color="warn" (click)="deleteProduct(product.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+    <!-- Total price calculation -->
+    <div class="total-price">
+      <p>Total Price: ${{ totalPrice }}</p>
     </div>
   </mat-card-content>
 </mat-card>
-
-<!-- Cart Display -->
-<div *ngIf="cart" class="cart-container mat-elevation-z4">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Your Cart</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div *ngFor="let product of products" class="product-item">
-        <mat-card class="product-card mat-elevation-z2">
-          <div class="product-details">
-            <img mat-card-image [src]="product.image" alt="Product Image" class="product-image">
-            <div class="product-info">
-              <mat-card-title>{{ product.title }}</mat-card-title>
-              <div class="quantity-price">
-                <mat-form-field appearance="outline">
-                  <input matInput type="number" [(ngModel)]="product.quantity" min="1">
-                </mat-form-field>
-                <p class="price">Price: ${{ product.price }}</p>
-                <button mat-icon-button color="warn" (click)="deleteProduct(product.id)">
-                  <mat-icon>delete</mat-icon>
-                </button>
-              </div>
-            </div>
-          </div>
-        </mat-card>
-      </div>
-    </mat-card-content>
-  </mat-card>
+<!-- Proceed to checkout button -->
+<div class="checkout-button">
+  <button mat-raised-button color="primary" (click)="proceedToCheckout()">Proceed to Checkout</button>
 </div>
-
 <div class="recently-viewed">
   <h2>Recently Viewed</h2>
   <div class="product-list1">
@@ -59,8 +49,8 @@
         <p class="product-price">Price: ${{ product.price }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button color="primary" >View</button>
-        <button mat-button color="accent" >Add to Cart</button>
+        <button mat-button color="primary">View</button>
+        <button mat-button color="accent">Add to Cart</button>
       </mat-card-actions>
     </div>
   </div>

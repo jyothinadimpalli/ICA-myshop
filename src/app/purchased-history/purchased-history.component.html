@@ -1,0 +1,15 @@
+<div class="history-container">
+    <div *ngFor="let product of products" class="product">
+      <img [src]="product.image" alt="{{ product.title }}" class="product-image">
+      <div class="details">
+        <h3>{{ product.title }}</h3>
+        <p>Quantity: {{ product.quantity }}</p>
+        <p>Price: ${{ product.price }}</p>
+        <p class="date">Ordered Date: <span class="highlight">{{ product.date | date }}</span></p>
+        <mat-card-actions>
+            <button mat-button color="primary" >View</button>
+        </mat-card-actions>
+      </div>
+    </div>
+  </div>
+  

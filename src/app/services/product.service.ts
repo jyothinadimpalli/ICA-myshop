@@ -13,11 +13,16 @@ import { PerformanceService } from './performance.service';
 export class ProductService {
 
   private apiUrl = 'https://fakestoreapi.com/products';
+  private cartsUrl = 'https://fakestoreapi.com/carts?limit=2';
+
 d:any;
   constructor(private http: HttpClient, private performanceService: PerformanceService) { }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl);
+  }
+  getCarts() {
+    return this.http.get<any[]>(this.cartsUrl);
   }
   getProductImage(productId: number) {
    this.d=this.http.get<Product>(`https://fakestoreapi.com/products/${productId}`).pipe(
