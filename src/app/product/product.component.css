@@ -85,4 +85,40 @@ mat-card-content p {
     z-index: 1000;
     background-color: rgb(180, 184, 183);
   }
+  .recently-viewed {
+    margin-bottom: 20px; /* Adjust margin as needed */
+  }
+  
+  .product-list {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+  }
+  
+  .product-card-row {
+    display: flex;
+  }
+  
+  .product-card {
+    width: 200px; /* Adjust card width as needed */
+    margin-right: 10px; /* Adjust spacing between cards */
+    border: 1px solid #ddd; /* Example border styling */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example box shadow */
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .product-card-content {
+    padding: 10px;
+  }
+  
+  .product-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
   

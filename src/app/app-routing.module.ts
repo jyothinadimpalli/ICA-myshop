@@ -6,11 +6,13 @@ import { CartComponent } from './cart/cart.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat-integration/chat.component';
+import { ProductDetailsComponent } from './product-details/product-details.component'; // Replace with actual component path
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent }, // Home route
   { path: 'products', component: ProductComponent },
+  { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'cart', component: CartComponent },
   { path: 'user', component: UserComponent },
   { path: 'chat', component: ChatComponent },

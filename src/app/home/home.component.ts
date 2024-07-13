@@ -13,11 +13,18 @@ export class HomeComponent implements OnInit {
   productsByCategory: { [key: string]: Product[] } = {};
   selectedCategory: string = '';
   filteredProducts: Product[] = [];
+  recentlyViewed: Product[] = [];
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.loadCategories();
+          // Retrieve recently viewed items from session storage
+          const storedRecentlyViewed = sessionStorage.getItem('recentlyViewed');
+          if (storedRecentlyViewed) {
+            this.recentlyViewed = JSON.parse(storedRecentlyViewed);
+            console.log(this.recentlyViewed);
+          }
   }
 
   loadCategories(): void {
@@ -50,5 +57,10 @@ export class HomeComponent implements OnInit {
 
   emptyStars(count: number): number[] {
     return Array.from({ length: 5 - Math.floor(count) });
+  }
+
+  addToCart(product: Product): void {
+    console.log('Adding product to cart:', product);
+    // Implement cart functionality as needed
   }
 }

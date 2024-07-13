@@ -1,3 +1,27 @@
+<div>
+  <app-product-recommendations></app-product-recommendations>
+  </div>
+
+  <div class="recently-viewed">
+    <h2>Recently Viewed</h2>
+    <div class="product-list">
+      <div class="product-card" *ngFor="let product of recentlyViewed">
+        <!-- Display product details as per your design -->
+        <img mat-card-image [src]="product.image" alt="{{ product.title }}">
+        <mat-card-content>
+          <h3>{{ product.title }}</h3>
+          <p class="product-rating">Rating: {{ product.rating.rate }} ({{ product.rating.count }} reviews)</p>
+          <p class="product-price">Price: ${{ product.price }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" >View</button>
+          <button mat-button color="accent" >Add to Cart</button>
+        </mat-card-actions>
+      </div>
+    </div>
+  </div>
+  
+  
 <!-- src/app/home/home.component.html -->
 <div class="filter-container">
     <div class="category-filter">
@@ -32,10 +56,10 @@
           </div>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button color="primary">View</button>
-          <button mat-button color="accent">Add to Cart</button>
+          <button mat-button color="primary" >View</button>
+          <button mat-button color="accent" >Add to Cart</button>
         </mat-card-actions>
       </mat-card>
     </div>
   </div>
-  
+ 

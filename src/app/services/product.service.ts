@@ -29,7 +29,10 @@ d:any;
     return this.performanceService.getApiResponseTime(this.apiUrl).then(responseTime => responseTime.toFixed(2));
   }
 
-
+  getProductById(id: number): Observable<Product> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Product>(url);
+  }
   getCategories(): Observable<string[]> {
     return this.http.get<string[]>('https://fakestoreapi.com/products/categories');
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
+import { Product } from '../models/product';
 
 @Component({
   selector: 'app-cart',
@@ -14,7 +15,7 @@ export class CartComponent implements OnInit {
   showMetrics: boolean = false;
 
   constructor(private cartService: CartService) {}
-
+  recentlyViewed: Product[] = [];
   ngOnInit(): void {
     const cartId = 6; // Replace with the actual cart ID or dynamically pass it
     this.fetchCartDetails(cartId);
@@ -25,6 +26,12 @@ export class CartComponent implements OnInit {
       const endTime = performance.now();
       this.loadTime = (endTime - startTime).toFixed(2);
     });
+     // Retrieve recently viewed items from session storage
+     const storedRecentlyViewed = sessionStorage.getItem('recentlyViewed');
+     if (storedRecentlyViewed) {
+       this.recentlyViewed = JSON.parse(storedRecentlyViewed);
+       console.log(this.recentlyViewed);
+     }
   }
 
   fetchCartDetails(cartId: number): void {
@@ -75,4 +82,5 @@ export class CartComponent implements OnInit {
   toggleMetrics(): void {
     this.showMetrics = !this.showMetrics;
   }
+  
 }

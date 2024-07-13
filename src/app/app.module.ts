@@ -23,6 +23,8 @@ import { HomeComponent } from './home/home.component';
 import { MatSelectModule } from '@angular/material/select'; // Import MatSelectModule
 import { MatFormFieldModule } from '@angular/material/form-field'; // Import MatFormFieldModule
 import { ChatComponent } from './chat-integration/chat.component';
+import { ProductRecommendationsComponent } from './product-recommendations/product-recommendations.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 
 
@@ -33,7 +35,7 @@ import { ChatComponent } from './chat-integration/chat.component';
     CartComponent,
     UserComponent,
     PerformanceComponent,
-    HomeComponent,ChatComponent
+    HomeComponent,ChatComponent, ProductRecommendationsComponent, ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

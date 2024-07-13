@@ -1,3 +1,4 @@
+
 <!-- product.component.html -->
 <div class="product-card-row">
   <div class="product-card" *ngFor="let productRow of filteredProductsChunked">
@@ -24,6 +25,24 @@
           <button mat-button color="accent" (click)="addToCart(product)">Add to Cart</button>
         </mat-card-actions>
       </mat-card>
+    </div>
+  </div>
+</div>
+<div class="recently-viewed">
+  <h2>Recently Viewed</h2>
+  <div class="product-list">
+    <div class="product-card" *ngFor="let product of recentlyViewed">
+      <!-- Display product details as per your design -->
+      <img mat-card-image [src]="product.image" alt="{{ product.title }}">
+      <mat-card-content>
+        <h3>{{ product.title }}</h3>
+        <p class="product-rating">Rating: {{ product.rating.rate }} ({{ product.rating.count }} reviews)</p>
+        <p class="product-price">Price: ${{ product.price }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary" (click)="viewProductDetails(product.id)">View</button>
+        <button mat-button color="accent" (click)="addToCart(product)">Add to Cart</button>
+      </mat-card-actions>
     </div>
   </div>
 </div>

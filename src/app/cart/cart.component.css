@@ -1,8 +1,4 @@
-.performance-card {
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-}
-
+/* Cart Component Styles */
 .cart-container {
   padding: 20px;
   transition: all 0.3s ease;
@@ -13,9 +9,13 @@
 }
 
 .product-card {
-  display: flex;
+  width: 50%; /* Set card width to occupy 50% of the container */
   padding: 10px;
   margin-bottom: 10px;
+  background-color: #fff; /* Card background color */
+  border: 1px solid #ddd; /* Border for the card */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for the card */
+  display: flex; /* Ensure flex display */
 }
 
 .product-details {
@@ -25,7 +25,7 @@
 }
 
 .product-image {
-  width: 100px;
+  width: 100px; /* Image width */
   height: auto;
   margin-right: 20px;
 }
@@ -50,13 +50,61 @@
 }
 
 button mat-icon {
-  color: red;
+  color: red; /* Color for delete icon */
 }
 
-.toggle-metrics {
-  position: fixed;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  z-index: 1000;
+/* Ensure image is properly sized */
+.product-image img {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  object-fit: cover; /* Maintain aspect ratio and cover container */
+}
+  
+
+.recently-viewed1 {
+  margin-bottom: 20px; /* Adjust margin as needed */
+}
+
+.product-list1 {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+.product-card1 {
+  width: 200px; /* Adjust card width as needed */
+  margin-right: 10px; /* Adjust spacing between cards */
+  border: 1px solid #ddd; /* Example border styling */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example box shadow */
+}
+
+.product-card1 img {
+  width: 100%; /* Set image width to 100% of its container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers the container */
+}
+
+  
+.product-rating {
+  display: flex;
+  align-items: center;
+}
+
+.product-rating mat-icon {
+  margin-right: 4px;
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-card-actions button {
+  background-color: #000;
+  color: #fff;
+  margin-top: 10px;
 }

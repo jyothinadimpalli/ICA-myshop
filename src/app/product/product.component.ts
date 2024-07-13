@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
-import { Router, ActivatedRoute } from '@angular/router'; // Import Router and ActivatedRoute
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -15,11 +15,12 @@ export class ProductComponent implements OnInit {
   loadTime: string;
   apiResponseTime: string;
   searchTerm: string = '';
+  recentlyViewed: Product[] = [];
 
   constructor(
     private productService: ProductService,
-    private router: Router, // Inject Router for navigation
-    private route: ActivatedRoute // Inject ActivatedRoute
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -34,6 +35,13 @@ export class ProductComponent implements OnInit {
         const endTime = performance.now();
         this.loadTime = (endTime - startTime).toFixed(2);
       });
+
+      // Retrieve recently viewed items from session storage
+      const storedRecentlyViewed = sessionStorage.getItem('recentlyViewed');
+      if (storedRecentlyViewed) {
+        this.recentlyViewed = JSON.parse(storedRecentlyViewed);
+        console.log(this.recentlyViewed);
+      }
 
       // Listen for query parameter changes
       this.route.queryParams.subscribe(params => {
@@ -75,14 +83,20 @@ export class ProductComponent implements OnInit {
 
   viewProductDetails(id: number): void {
     // Navigate to product details page or show modal with product details
-    // Example navigation to product details using router
-    this.router.navigate(['/products', id]); // Update route and parameters as per your routing configuration
-  console.log(this.router.navigate(['/products', id]));
+    this.router.navigate(['/products', id]);
+
+    // Retrieve the product from products array by id
+    const viewedProduct = this.products.find(product => product.id === id);
+    if (viewedProduct && !this.recentlyViewed.some(product => product.id === id)) {
+      // Add viewed product to recently viewed array
+      this.recentlyViewed.unshift(viewedProduct);
+      // Store recently viewed array in session storage
+      sessionStorage.setItem('recentlyViewed', JSON.stringify(this.recentlyViewed));
+    }
   }
 
   addToCart(product: Product): void {
-    // Implement logic to add product to cart
     console.log('Adding product to cart:', product);
-    // You can implement cart functionality using a service or emit events to parent components
+    // Implement cart functionality as needed
   }
 }
