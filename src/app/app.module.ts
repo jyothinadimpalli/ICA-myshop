@@ -22,6 +22,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { HomeComponent } from './home/home.component';
 import { MatSelectModule } from '@angular/material/select'; // Import MatSelectModule
 import { MatFormFieldModule } from '@angular/material/form-field'; // Import MatFormFieldModule
+import { ChatComponent } from './chat-integration/chat.component';
 
 
 
@@ -32,8 +33,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'; // Import Mat
     CartComponent,
     UserComponent,
     PerformanceComponent,
-    HomeComponent,
-
+    HomeComponent,ChatComponent
   ],
   imports: [
     BrowserModule,

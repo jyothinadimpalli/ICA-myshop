@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -10,6 +11,8 @@ export class CartComponent implements OnInit {
   products: any[] = [];
   loadTime: string;
   apiResponseTime: string;
+  showMetrics: boolean = false;
+
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
@@ -54,8 +57,6 @@ export class CartComponent implements OnInit {
     });
   }
 
-
-
   deleteProduct(productId: number): void {
     // Assuming you want to delete the product from cart ID 6
     const cartId = 6;
@@ -71,4 +72,7 @@ export class CartComponent implements OnInit {
     );
   }
 
+  toggleMetrics(): void {
+    this.showMetrics = !this.showMetrics;
+  }
 }

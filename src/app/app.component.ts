@@ -1,4 +1,3 @@
-// src/app/app.component.ts
 import { Component } from '@angular/core';
 import { UserService } from './services/user.service';
 import { User } from './models/user';
@@ -13,6 +12,8 @@ export class AppComponent {
   title = 'my-shop';
   username = '';
   searchQuery = '';
+  isOpen = false; // Flag to control chat visibility
+  showChat = false;
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -32,5 +33,17 @@ export class AppComponent {
     const query = inputElement.value;
     this.searchQuery = query;
     this.router.navigate(['/products'], { queryParams: { search: query } });
+  }
+
+  toggleChat(): void {
+    this.isOpen = !this.isOpen; // Toggle chat visibility
+  }
+
+  closeChat(): void {
+    this.isOpen = false; // Close chat
+  }
+
+  sendMessage(): void {
+    // Implement sending message logic as needed
   }
 }

@@ -1,0 +1,25 @@
+<div class="chat-container" [ngClass]="{ 'open': isOpen }">
+  <div class="chat-header" (dblclick)="toggleChat()">
+    <h3>EcoEarth Store Chat Bot</h3>
+    <div class="user-icon">
+      <mat-icon>android</mat-icon>
+    </div>
+  </div>
+  <div class="chat-window">
+    <div class="messages" #messageContainer *ngIf="isOpen">
+      <div *ngFor="let msg of messages; let i = index" [ngClass]="{'message-even': i % 2 === 0, 'message-odd': i % 2 !== 0}">
+        <div *ngIf="msg.bot" class="bot-message">
+          <mat-icon>android</mat-icon>
+          <span>{{ msg.text }}</span>
+        </div>
+        <div *ngIf="!msg.bot" class="user-message">
+          <span>{{ msg.text }}</span>
+          <mat-icon>person</mat-icon>
+        </div>
+      </div>
+    </div>
+    <div class="input-container" *ngIf="isOpen">
+      <input [(ngModel)]="userMessage" (keydown.enter)="sendMessage()" placeholder="Type a message..." class="compact-input" />
+    </div>
+  </div>
+</div>
