@@ -14,7 +14,12 @@ export class HomeComponent implements OnInit {
   selectedCategory: string = '';
   filteredProducts: Product[] = [];
   recentlyViewed: Product[] = [];
-
+  sliderImages = [
+    { url: 'https://img.freepik.com/premium-psd/black-friday-watch-post_917890-9.jpg?w=740', alt: 'Image 1', title: '', description: 'Friday sale' },
+    { url: 'https://www.olie.co.in/cdn/shop/products/gift-card-1000.jpg?v=1567489016&width=750', alt: 'Image 2', title: 'July Month', description: ' Min purchase 10,000/- ' },
+    { url: 'https://cdn.zeebiz.com/sites/default/files/styles/zeebiz_850x478/public/2021/08/13/156544-sbi-fp.jpg?itok=51xvUl3G&c=c5af8c0f92ccc8e249257bf0f1cb18e8', alt: 'Image 3', title: 'New User', description:'' }
+  ];
+    
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {

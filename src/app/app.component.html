@@ -2,16 +2,16 @@
 <div class="main-content">
   <div>
     <header>
-      
       <a routerLink="/" routerLinkActive="active">
         <h1 class="brand-name">EcoEarth Store</h1>    
       </a>
       <nav>
-        <input type="text" placeholder="Search products" (input)="onSearch($event)">
         <a routerLink="/products" routerLinkActive="active">
           <mat-icon>store</mat-icon>
           Products
         </a>
+        <input type="text" placeholder="Search products" (input)="onSearch($event)">
+       
         <a routerLink="/cart" routerLinkActive="active">
           <mat-icon>shopping_cart</mat-icon>
           Cart

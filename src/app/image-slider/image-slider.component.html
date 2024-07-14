@@ -1,0 +1,15 @@
+<div class="slider-container">
+    <div *ngIf="images && images.length > 0" class="slider">
+      <div *ngFor="let image of images" class="slide">
+        <img [src]="image.url" alt="{{ image.alt }}">
+        <div class="slide-text">
+          <h3>{{ image.title }}</h3>
+          <p>{{ image.description }}</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="images && images.length === 0" class="no-images">
+      No images to display.
+    </div>
+  </div>
+  

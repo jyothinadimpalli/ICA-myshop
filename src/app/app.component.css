@@ -2,14 +2,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 7px 20px;
     background-color: #050505;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   nav {
     display: flex;
-    gap: 20px;
+    gap: 7px;
   }
   
   nav a {
@@ -21,7 +21,7 @@ header {
   }
   
   nav a mat-icon {
-    margin-right: 8px;
+    margin-right: 5px;
   }
   
   nav a.active {
@@ -41,4 +41,20 @@ header {
     letter-spacing: 2px; /* Add letter spacing for uniqueness */
     margin: 0; /* Remove default margin */
     color: white; /* White text color */
+  }
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #050505;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure header is above other content */
+  }  
+  .main-content {
+    padding-top: 80px; /* Adjust padding to accommodate fixed header height */
   }

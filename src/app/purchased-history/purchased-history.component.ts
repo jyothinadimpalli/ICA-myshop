@@ -10,6 +10,8 @@ export class PurchasedHistoryComponent implements OnInit {
 
   carts: any[] = [];
   products: any[] = [];
+  recommendedProducts: any[] = [];
+  recommendedProductIds: Set<number> = new Set<number>(); // Set to track recommended product IDs
 
   constructor(private productService: ProductService) { }
 
@@ -27,10 +29,21 @@ export class PurchasedHistoryComponent implements OnInit {
               image: prod.image,
               date: cart.date // Added date field
             });
+            this.fetchRecommendedProducts(prod.category, prod.id);
           });
         });
       });
     });
   }
 
+  fetchRecommendedProducts(category: string, currentProductId: number): void {
+    this.productService.getRecommendedProducts(category).subscribe(products => {
+      products.forEach(product => {
+        if (!this.recommendedProductIds.has(product.id) && product.id !== currentProductId) {
+          this.recommendedProductIds.add(product.id);
+          this.recommendedProducts.push(product);
+        }
+      });
+    });
+  }
 }

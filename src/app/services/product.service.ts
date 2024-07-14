@@ -14,6 +14,7 @@ export class ProductService {
 
   private apiUrl = 'https://fakestoreapi.com/products';
   private cartsUrl = 'https://fakestoreapi.com/carts?limit=2';
+  private apiUrll = 'https://fakestoreapi.com';
 
 d:any;
   constructor(private http: HttpClient, private performanceService: PerformanceService) { }
@@ -43,6 +44,11 @@ d:any;
   }
   getProductsByCategory(category: string): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.apiUrl}/category/${category}`);
+  }
+
+
+  getRecommendedProducts(category: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrll}/products/category/${category}`);
   }
 
 

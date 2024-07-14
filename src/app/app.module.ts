@@ -27,6 +27,7 @@ import { ProductRecommendationsComponent } from './product-recommendations/produ
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { PurchasedHistoryComponent } from './purchased-history/purchased-history.component';
 import { PaymentOptionsComponent } from './payment-options/payment-options.component';
+import { ImageSliderComponent } from './image-slider/image-slider.component';
 
 
 
@@ -37,7 +38,7 @@ import { PaymentOptionsComponent } from './payment-options/payment-options.compo
     CartComponent,
     UserComponent,
     PerformanceComponent,
-    HomeComponent,ChatComponent, ProductRecommendationsComponent, ProductDetailsComponent, PurchasedHistoryComponent, PaymentOptionsComponent
+    HomeComponent,ChatComponent, ProductRecommendationsComponent, ProductDetailsComponent, PurchasedHistoryComponent, PaymentOptionsComponent, ImageSliderComponent
   ],
   imports: [
     BrowserModule,
