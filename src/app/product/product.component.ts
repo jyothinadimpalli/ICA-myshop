@@ -91,6 +91,7 @@ export class ProductComponent implements OnInit {
       // Add viewed product to recently viewed array
       this.recentlyViewed.unshift(viewedProduct);
       // Store recently viewed array in session storage
+      //sessionStorage.removeItem('recentlyViewed');
       sessionStorage.setItem('recentlyViewed', JSON.stringify(this.recentlyViewed));
     }
   }
